@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>Two Sum</title>
+      <link href="/2019/05/05/leetcode-shua-ti-ji-yi-python/"/>
+      <url>/2019/05/05/leetcode-shua-ti-ji-yi-python/</url>
+      
+        <content type="html"><![CDATA[<h1 id="LeetCode刷题记-一-——Python"><a href="#LeetCode刷题记-一-——Python" class="headerlink" title="LeetCode刷题记(一)——Python"></a>LeetCode刷题记(一)——Python</h1><h2 id="1-Two-Sum"><a href="#1-Two-Sum" class="headerlink" title="1.Two Sum"></a>1.Two Sum</h2><p>难度: Easy</p><p>刷题内容<br>原题连接<a href="https://leetcode.com/problems/two-sum" target="_blank" rel="noopener">leetcode-twosum</a></p><p>内容描述</p><p>Given an array of integers, return indices of the two numbers such that they add up to a specific target.</p><p>You may assume that each input would have exactly one solution, and you may not use the same element twice.</p><p>Example:</p><p>Given nums = [2, 7, 11, 15], target = 9,</p><p>Because nums[0] + nums[1] = 2 + 7 = 9,<br>return [0, 1].</p><hr><h2 id="简单翻译一下"><a href="#简单翻译一下" class="headerlink" title="简单翻译一下"></a><strong>简单翻译一下</strong></h2><p>1.两个总和<br>简单<br>给定一个整数数组，返回两个数字的索引，使它们相加到特定目标。</p><p>您可以假设每个输入只有一个解决方案，并且您可能不会两次使用相同的元素。</p><p>例：</p><p>被给NUMS = [2，7，11，15]，目标变量TARGET = 9，</p><p>因为NUMS[0] + NUMS[1] = 2 + 7 = 9，</p><p>则返回[0,1]。</p><h3 id="题意理解"><a href="#题意理解" class="headerlink" title="题意理解"></a>题意理解</h3><ul><li>定义一个函数，接受两个参数，一个是给出的整数数组列表和一个被满足的目标变量，满足条件是从列表里找出两个相加等于目标变量值的整数，只返回这两个整数值的索引值组成的列表。</li></ul><h3 id="解题思路及方案"><a href="#解题思路及方案" class="headerlink" title="解题思路及方案"></a>解题思路及方案</h3><ul><li><strong>暴力解法，两轮遍历</strong><blockquote><p>思路一:最直接想到的就是分别线性遍历一遍，不过时间复杂度: O(N^2)- 空间复杂度: O(1)<strong>**</strong></p></blockquote></li></ul><pre><code>class Solution(object):    def twoSum(self, nums, target):        &quot;&quot;&quot;        :type nums: List[int]        :type target: int        :rtype: List[int]        &quot;&quot;&quot;        for i in range(len(nums)):            for j in range(i+1, len(nums)):                if nums[i] + nums[j] == target:                    return [i, j]</code></pre><p><strong>很显然上面对时间要求太多，可以牺牲空间换时间</strong></p><blockquote><p>思路二:时间复杂度: O(N)- 空间复杂度: O(N)<strong>**</strong></p><ul><li>建立字典 lookup 存放第一个数字，并存放该数字的 index<br>判断 lookup 中是否存在： target</li><li>当前数字， 则表面 当前值和 lookup中的值加和为 target.<br>如果存在，则返回： target</li><li>当前数字 的 index 和 当前值的 index</li></ul></blockquote><pre><code>class Solution(object):    def twoSum(self, nums, target):        &quot;&quot;&quot;        :type nums: List[int]        :type target: int        :rtype: List[int]        &quot;&quot;&quot;        lookup = {}        for i, num in enumerate(nums):            if target - num in lookup:                return [lookup[target-num], i]            else:                lookup[num] = i</code></pre><h3 id="执行说明"><a href="#执行说明" class="headerlink" title="执行说明"></a>执行说明</h3><pre><code>class Solution(object):    def twoSum(self, nums, target):        &quot;&quot;&quot;        :type nums: List[int]        :type target: int        :rtype: List[int]        &quot;&quot;&quot;        lookup = {}        for i, num in enumerate(nums):            print(&quot;序号变量i :{i}  数值变量num :{num}&quot;.format(i=i,num=num))            if target - num in lookup:                print(&quot;返回找到的两个数的索引值列表：{}&quot;.format([lookup[target-num], i]))            else:                lookup[num] = i                print(&quot;字典lookup:{}&quot;.format(lookup))S = Solution()nums = [2,7,13,11]target = 9S.twoSum(nums,target)# 以下是 enumerate() 方法的语法:## enumerate(sequence, [start=0])# 参数# sequence -- 一个序列、迭代器或其他支持迭代对象。# start -- 下标起始位置。# 返回值# 返回 enumerate(枚举) 对象。## 实例# 以下展示了使用 enumerate() 方法的实例：## &gt;&gt;&gt;seasons = [&#39;Spring&#39;, &#39;Summer&#39;, &#39;Fall&#39;, &#39;Winter&#39;]# &gt;&gt;&gt; list(enumerate(seasons))# [(0, &#39;Spring&#39;), (1, &#39;Summer&#39;), (2, &#39;Fall&#39;), (3, &#39;Winter&#39;)]# &gt;&gt;&gt; list(enumerate(seasons, start=1))       # 下标从 1 开始# [(1, &#39;Spring&#39;), (2, &#39;Summer&#39;), (3, &#39;Fall&#39;), (4, &#39;Winter&#39;)]</code></pre><p><a href="https://github.com/apachecn/awesome-algorithm/tree/master/docs/Leetcode_Solutions/Python" target="_blank" rel="noopener">参考链接</a></p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> LeetCode </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Hello World</title>
       <link href="/2019/02/13/hello-world/"/>
       <url>/2019/02/13/hello-world/</url>
