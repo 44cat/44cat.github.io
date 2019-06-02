@@ -4,10 +4,10 @@
 
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="Add-Two-Numbers, 国佬">
-    <meta name="description" content="LeetCode刷题记(二)——Python[LeetCode] Add Two Numbers 两个数字相加难度: 中等刷题内容原题连接leetcode-twosum
+    <meta name="keywords" content="Add Two Numbers, 国佬">
+    <meta name="description" content="[LeetCode] Add Two Numbers 两个数字相加难度: 中等刷题内容原题连接leetcode-twosum
 内容描述
-You are given two non-empty li">
+You are given two non-empty linked lists representin">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -15,7 +15,7 @@ You are given two non-empty li">
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>Add-Two-Numbers | 国佬</title>
+    <title>Add Two Numbers | 国佬</title>
     <link rel="icon" type="image/jpeg" href="/favicon.jpg">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -287,13 +287,13 @@ You are given two non-empty li">
 
 
 
-<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/5.jpg')">
+<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/9.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        Add-Two-Numbers
+                        Add Two Numbers
                     </div>
                 </div>
             </div>
@@ -342,7 +342,7 @@ You are given two non-empty li">
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        833
+                        701
                     </div>
                     
 
@@ -365,7 +365,7 @@ You are given two non-empty li">
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="LeetCode刷题记-二-——Python"><a href="#LeetCode刷题记-二-——Python" class="headerlink" title="LeetCode刷题记(二)——Python"></a>LeetCode刷题记(二)——Python</h1><h2 id="LeetCode-Add-Two-Numbers-两个数字相加"><a href="#LeetCode-Add-Two-Numbers-两个数字相加" class="headerlink" title="[LeetCode] Add Two Numbers 两个数字相加"></a>[LeetCode] Add Two Numbers 两个数字相加</h2><p>难度: 中等<br>刷题内容<br>原题连接<a href="https://leetcode.com/problems/add-two-numbers" target="_blank" rel="noopener">leetcode-twosum</a></p>
+                <h2 id="LeetCode-Add-Two-Numbers-两个数字相加"><a href="#LeetCode-Add-Two-Numbers-两个数字相加" class="headerlink" title="[LeetCode] Add Two Numbers 两个数字相加"></a>[LeetCode] Add Two Numbers 两个数字相加</h2><p>难度: 中等<br>刷题内容<br>原题连接<a href="https://leetcode.com/problems/add-two-numbers" target="_blank" rel="noopener">leetcode-twosum</a></p>
 <p>内容描述</p>
 <p>You are given two non-empty linked lists representing two non-negative integers. The digits are stored in reverse order and each of their nodes contain a single digit. Add the two numbers and return it as a linked list.</p>
 <p>You may assume the two numbers do not contain any leading zero, except the number 0 itself.</p>
@@ -375,7 +375,8 @@ You are given two non-empty li">
 <p>如果，我们将这两个数相加起来，则会返回一个新的链表来表示它们的和。</p>
 <p>您可以假设除了数字 0 之外，这两个数都不会以 0 开头。</p>
 <h3 id="题意理解"><a href="#题意理解" class="headerlink" title="题意理解"></a>题意理解</h3><p>这道并不是什么难题，算法很简单，链表的数据类型也不难，就是建立一个新链表，然后把输入的两个链表从头往后撸，每两个相加，添加一个新节点到新链表后面。</p>
-<h3 id="解题思路及方案"><a href="#解题思路及方案" class="headerlink" title="解题思路及方案"></a>解题思路及方案</h3><p>为了避免两个输入链表同时为空，我们建立一个dummy结点，将两个结点相加生成的新结点按顺序加到dummy结点之后，由于dummy结点本身不能变，所以我们用一个指针cur来指向新链表的最后一个结点。好，可以开始让两个链表相加了，这道题好就好在最低位在链表的开头，所以我们可以在遍历链表的同时按从低到高的顺序直接相加。while循环的条件两个链表中只要有一个不为空行，由于链表可能为空，所以我们在取当前结点值的时候，先判断一下，若为空则取0，否则取结点值。然后把两个结点值相加，同时还要加上进位carry。然后更新carry，直接 sum/10 即可，然后以 sum%10 为值建立一个新结点，连到cur后面，然后cur移动到下一个结点。之后再更新两个结点，若存在，则指向下一个位置。while循环退出之后，最高位的进位问题要最后特殊处理一下，若carry为1，则再建一个值为1的结点，代码如下：</p>
+<h3 id="解题思路及方案"><a href="#解题思路及方案" class="headerlink" title="解题思路及方案"></a>解题思路及方案</h3><p>定义节点,使用：类+构造方法，构造方法的参数要有节点的数值大小、对下一个节点的指针等。<br>若 l1 表示一个链表，则实质上 l1 表示头节点的指针。<br>先实例一个头结点，然后在 while 循环中逐个加入节点。<br>del ret 删除头结点。</p>
+<h3 id="关键解析"><a href="#关键解析" class="headerlink" title="关键解析"></a>关键解析</h3><p>head是一个哑节点(dummy node)，可以简化代码。<br>python的对象分为两种：可变对象与不可变对象。<br>整数属于不可变对象，当改变j的值时，相当于新建了一个整数对象重新赋值给j，故不会改变i的值。而l和head指向的是可变对象，因而l变化了，head也会随之变化。</p>
 <h2 id="Python解法"><a href="#Python解法" class="headerlink" title="Python解法"></a>Python解法</h2><pre><code># Definition for singly-linked list.
 # class ListNode:
 #     def __init__(self, x):
@@ -568,7 +569,7 @@ class Solution:
                     </span>
                     <a href="http://guolao.me" class="b-link-green">国佬</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/2019/06/02/leetcode-shua-ti-ji-002-python/" class="b-link-green">Add-Two-Numbers</a>
+                    <a href="/2019/06/02/leetcode-shua-ti-ji-002-python/" class="b-link-green">Add Two Numbers</a>
                 </p>
             </div>
         </div>
@@ -857,15 +858,17 @@ class Solution:
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="Add-Two-Numbers">
+                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="Add Two Numbers">
                         
-                        <span class="card-title">Add-Two-Numbers</span>
+                        <span class="card-title">Add Two Numbers</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary">
                         
-                            LeetCode刷题记(二)——Python[LeetCode] Add Two Numbers 两个数字相加难度: 中等刷题内容原题连接l
+                            [LeetCode] Add Two Numbers 两个数字相加难度: 中等刷题内容原题连接leetcode-twosum
+内容描述
+Yo
                         
                     </div>
                     <div class="publish-info">
@@ -960,7 +963,7 @@ G
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">1.7k</span>
+                <span class="white-color">1.5k</span>
             
 
             
